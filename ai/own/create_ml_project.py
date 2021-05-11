@@ -13,6 +13,15 @@ def create_project(project):
     except FileExistsError:
         pass
 
+    # for input only
+
+    with open('./input/{0}/train.csv'.format(project), 'w') as f:
+        pass
+    with open('./input/{0}/test.csv'.format(project), 'w') as f:
+        pass
+
+    # for SRC only
+
     with open('./src/{0}/create_folds.py'.format(project), 'w') as f:
         pass
     with open('./src/{0}/train.py'.format(project), 'w') as f:
