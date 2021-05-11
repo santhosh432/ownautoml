@@ -1,0 +1,8 @@
+
+.env
+.idea/
+#ai/
+#db.sqlite3
+
+#manage.py
+#ownautoml/
