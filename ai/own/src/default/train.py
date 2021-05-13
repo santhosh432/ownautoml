@@ -37,6 +37,12 @@ def run(fold, model):
     path = config.models_path() + '/model-{0},score-{1},fold-{2}.bin'.format(model, round(score * 100, 2), fold)
     joblib.dump(clf, path)
 
+    f1 = metrics.f1_score(y_valid, preds, average='micro')
+    precision = metrics.precision_score(y_valid, preds, average='micro')
+    recall = metrics.recall_score(y_valid, preds, average='micro')
+
+    return {'model_name': model, 'accuracy': score, 'f1': f1, 'precision': precision, 'recall': recall}
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
