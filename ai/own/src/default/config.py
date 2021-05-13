@@ -23,9 +23,9 @@ def input_data(file_name='train_data.csv', project=None):
     return p
 
 
-def models_path(project):
+def models_path():
 
-    p = DIR + '/{0}/'.format(project)
+    p = DIR
     p = p.replace('src', 'models')
 
     return p
