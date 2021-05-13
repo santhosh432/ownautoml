@@ -23,3 +23,19 @@ class Project(models.Model):
 
     def __str__(self):
         return "{0} - {1}".format(self.project_name, self.project_type)
+
+
+class ClassificationReport(models.Model):
+    """ only classification model report """
+    project_name = models.ForeignKey(Project, related_name='project_classification', on_delete=models.PROTECT)
+    model_name = models.CharField(max_length=100, verbose_name='Model name')
+    accuracy = models.FloatField()
+    f1_score = models.FloatField()
+    precision = models.FloatField()
+    recall = models.FloatField()
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{0}-{1}-{2}'.format(self.project_name, self.model_name, self.accuracy)
+
+
