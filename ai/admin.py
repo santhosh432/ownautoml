@@ -29,7 +29,7 @@ def make_folding(modeladmin, request, queryset):
 def start_train(modeladmin, request, queryset):
     for q in queryset:
         path = os.getcwd() + '/ai/own/src/{0}/'.format(q.project_name)
-        g = os.chdir(path)
+        # g = os.chdir(path)
         # g = os.getcwd()
         sys.path.append(path)
         print(path)
