@@ -15,7 +15,7 @@ def make_folding(modeladmin, request, queryset):
         path = os.getcwd() + '/ai/own/src/{0}/'.format(q.project_name)
         os.chdir(path)
         g = os.getcwd()
-        sys.path.append(g)
+        sys.path.append(path)
         # print(os.listdir(g))
 
         import create_folds
@@ -29,9 +29,10 @@ def make_folding(modeladmin, request, queryset):
 def start_train(modeladmin, request, queryset):
     for q in queryset:
         path = os.getcwd() + '/ai/own/src/{0}/'.format(q.project_name)
-        os.chdir(path)
-        g = os.getcwd()
-        sys.path.append(g)
+        g = os.chdir(path)
+        # g = os.getcwd()
+        sys.path.append(path)
+        print(path)
         import train
         import model_dispatcher
 
