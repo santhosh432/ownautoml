@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Project
+from .models import Project, ClassificationReport
 from .own import create_ml_project
 import os
 import sys
@@ -41,7 +41,16 @@ def start_train(modeladmin, request, queryset):
         for model in models:
 
             for i in range(5):
-                train.run(i, model)
+                report = train.run(i, model)
+                save_report = ClassificationReport(project_name=q,
+                                                   model_name=report.get('model_name'),
+                                                   accuracy=report.get('accuracy', 0),
+                                                   f1_score=report.get('f1', 0),
+                                                   precision=report.get('precision', 0),
+                                                   recall=report.get('recall', 0),
+                                                   )
+                save_report.save()
+
                 messages.info(request, 'Train with fold number {0} completed by model {1} ....'.format(i, model))
 
     messages.success(request, 'Training complete successfully ')
@@ -56,3 +65,7 @@ class ProjectAdmin(admin.ModelAdmin):
         p = create_ml_project.create_project(request.POST.get('project_name'))
         return super(ProjectAdmin, self).save_form(request, form, change)
 
+
+@admin.register(ClassificationReport)
+class ClassificationReportAdmin(admin.ModelAdmin):
+    list_display = ['project_name', 'model_name', 'accuracy']
