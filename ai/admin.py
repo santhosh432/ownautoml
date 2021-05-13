@@ -68,4 +68,4 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(ClassificationReport)
 class ClassificationReportAdmin(admin.ModelAdmin):
-    list_display = ['project_name', 'model_name', 'accuracy']
+    list_display = ['project_name', 'model_name', 'accuracy', 'date_created']
