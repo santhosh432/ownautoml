@@ -1,6 +1,6 @@
 import os
 import argparse
-
+import shutil
 
 def create_project(project):
     print('Started creating project ....', project)
@@ -20,25 +20,38 @@ def create_project(project):
 
     # for input only
 
-    with open(p + '/input/{0}/train.csv'.format(project), 'w') as f:
-        pass
-    with open(p + '/input/{0}/test.csv'.format(project), 'w') as f:
-        pass
+    # shutil.copy(p + '/src/default/', p + '/src/{0}/'.format(project))
 
-    # for SRC only
+    shutil.copy(p + '/src/default/train.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/src/default/config.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/src/default/create_folds.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/src/default/inference.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/src/default/model_dispatcher.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/src/default/models.py', p + '/src/{0}'.format(project))
 
-    with open(p + '/src/{0}/create_folds.py'.format(project), 'w') as f:
-        pass
-    with open(p + '/src/{0}/train.py'.format(project), 'w') as f:
-        pass
-    with open(p + '/src/{0}/inference.py'.format(project), 'w') as f:
-        pass
-    with open(p + '/src/{0}/models.py'.format(project), 'w') as f:
-        pass
-    with open(p + '/src/{0}/config.py'.format(project), 'w') as f:
-        pass
-    with open(p + '/src/{0}/model_dispatcher.py'.format(project), 'w') as f:
-        pass
+    #
+    #
+    # with open(p + '/input/{0}/train.csv'.format(project), 'w') as f:
+    #     pass
+    # with open(p + '/input/{0}/test.csv'.format(project), 'w') as f:
+    #     pass
+    #
+    # # for SRC only
+    #
+    #
+    #
+    # with open(p + '/src/{0}/create_folds.py'.format(project), 'w') as f:
+    #     pass
+    # with open(p + '/src/{0}/train.py'.format(project), 'w') as f:
+    #     pass
+    # with open(p + '/src/{0}/inference.py'.format(project), 'w') as f:
+    #     pass
+    # with open(p + '/src/{0}/models.py'.format(project), 'w') as f:
+    #     pass
+    # with open(p + '/src/{0}/config.py'.format(project), 'w') as f:
+    #     pass
+    # with open(p + '/src/{0}/model_dispatcher.py'.format(project), 'w') as f:
+    #     pass
 
     print('Project created successfully ..............')
 
