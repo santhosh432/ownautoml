@@ -10,7 +10,7 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 print('DIR', DIR)
 
 
-def input_data(file_name='mnist_train.csv', project=None):
+def input_data(file_name='train_data.csv', project=None):
     """
     :param file_name: input CSV file name with all semesters.
     :return: full pah
