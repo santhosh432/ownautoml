@@ -29,6 +29,7 @@ class ClassificationReport(models.Model):
     """ only classification model report """
     project_name = models.ForeignKey(Project, related_name='project_classification', on_delete=models.PROTECT)
     model_name = models.CharField(max_length=100, verbose_name='Model name')
+    model_path = models.CharField(max_length=100, default='')
     accuracy = models.FloatField()
     f1_score = models.FloatField()
     precision = models.FloatField()
