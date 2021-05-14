@@ -34,14 +34,17 @@ def run(fold, model):
     print('Score {0}, fold {1}', score, fold)
 
     # joblib.dump(config.models_path() + '/score-{0}-fold-{1}'.format(score, fold))
-    path = config.models_path() + '/model-{0},score-{1},fold-{2}.bin'.format(model, round(score * 100, 2), fold)
+
+    model_file = '/model-{0},score-{1},fold-{2}.bin'.format(model, round(score * 100, 2), fold)
+    path = config.models_path() + model_file
     joblib.dump(clf, path)
 
     f1 = metrics.f1_score(y_valid, preds, average='micro')
     precision = metrics.precision_score(y_valid, preds, average='micro')
     recall = metrics.recall_score(y_valid, preds, average='micro')
 
-    return {'model_name': model, 'accuracy': score, 'f1': f1, 'precision': precision, 'recall': recall}
+    return {'model_file':model_file, 'model_name': model,
+            'accuracy': score, 'f1': f1, 'precision': precision, 'recall': recall}
 
 
 if __name__ == '__main__':
