@@ -42,8 +42,10 @@ def start_train(modeladmin, request, queryset):
 
             for i in range(5):
                 report = train.run(i, model)
+                print(report)
                 save_report = ClassificationReport(project_name=q,
                                                    model_name=report.get('model_name'),
+                                                   model_path = report.get('model_file', None),
                                                    accuracy=report.get('accuracy', 0),
                                                    f1_score=report.get('f1', 0),
                                                    precision=report.get('precision', 0),
@@ -69,3 +71,4 @@ class ProjectAdmin(admin.ModelAdmin):
 @admin.register(ClassificationReport)
 class ClassificationReportAdmin(admin.ModelAdmin):
     list_display = ['project_name', 'model_name', 'accuracy', 'date_created']
+    list_filter = ['model_name', 'project_name']
