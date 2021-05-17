@@ -22,12 +22,12 @@ def create_project(project):
 
     # shutil.copy(p + '/src/default/', p + '/src/{0}/'.format(project))
 
-    shutil.copy(p + '/src/default/train.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/src/default/config.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/src/default/create_folds.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/src/default/inference.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/src/default/model_dispatcher.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/src/default/models.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/default/train.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/default/config.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/default/create_folds.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/default/inference.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/default/model_dispatcher.py', p + '/src/{0}'.format(project))
+    shutil.copy(p + '/default/models.py', p + '/src/{0}'.format(project))
 
     #
     #
