@@ -1,0 +1,7 @@
+.env
+.git
+
+ai/own/input/*
+ai/own/models/*
+ai/own/notebooks/*
+ai/own/src/*
