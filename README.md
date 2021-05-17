@@ -3,13 +3,13 @@
 
 ## Setup project
 
-``` git cone https://github.com/santhosh432/ownautoml.git ``` 
+``` git clone https://github.com/santhosh432/ownautoml.git ``` 
 
 ``` cd ownautoml ```
 
 ``` python manage.py runserver ```
 
-``` open [127.0.0.1:8000](http://127.0.0.1:8000/) ```
+``` open http://127.0.0.1:8000/ ```
 
 #### To create file structure for new project
 
