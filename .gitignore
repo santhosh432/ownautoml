@@ -1,7 +1,11 @@
 
 .env
 .idea/
-#ai/
+ai/own/src/
+ai/own/input/
+ai/own/models/
+ai/own/notebooks/
+
 #db.sqlite3
 
 #manage.py
