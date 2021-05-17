@@ -1,6 +1,16 @@
 # ownautoml
 ## Auto ML with your own setup with Django 
 
+## Setup project
+
+``` git cone https://github.com/santhosh432/ownautoml.git ``` 
+
+``` cd ownautoml ```
+
+``` python manage.py runserver ```
+
+``` open [127.0.0.1:8000](http://127.0.0.1:8000/) ```
+
 #### To create file structure for new project
 
 ``` cd ai/own ```  
