@@ -17,9 +17,10 @@ def run(fold, model):
 
     df_valid = df[df.kfold == fold].reset_index(drop=True)
 
-    df_train = df_train.loc[:, ~df_train.columns.str.match("Unnamed")]
+    # todo remove columns fro unnamed ...
+    # df_train = df_train.loc[:, ~df_train.columns.str.match("Unnamed")]
 
-    df_valid = df_train.loc[:, ~df_valid.columns.str.match("Unnamed")]
+    # df_valid = df_train.loc[:, ~df_valid.columns.str.match("Unnamed")]
 
     x_train = df_train.drop(['label', 'kfold'], axis=1).values
     y_train = df_train.label.values
