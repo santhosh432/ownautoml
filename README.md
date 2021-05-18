@@ -6,7 +6,8 @@
     <img alt="Last commit" src="https://img.shields.io/github/last-commit/santhosh432/ownautoml">
 </a>
 </p>
-# ownautoml
+
+## ownautoml
 
 Ownautoml is an automated machine learning toolkit for command line and interface level. It supports autoamted deployement with docker with django.
 
