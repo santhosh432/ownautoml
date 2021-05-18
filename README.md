@@ -2,7 +2,9 @@
  
 <a> <img src="https://img.shields.io/badge/python-3.6.13-blue.svg"> </a>
 <a> <img src="https://img.shields.io/badge/django-3.2.2-blue"> </a>
-
+<a href="https://github.com/santhosh432/ownautoml/commits/main">
+    <img alt="Last commit" src="https://img.shields.io/github/last-commit/santhosh432/ownautoml">
+</a>
 </p>
 # ownautoml
 
