@@ -16,9 +16,12 @@ Ownautoml is an automated machine learning toolkit for command line and interfac
 
 #### To create file structure for new Machine learning project
 
-``` cd ai/own ```  
+```python
+cd ai/own 
 
-``` python create_ml_project.py --project myproject ```
+python create_ml_project.py --project myproject 
+
+```
 
 ## or 
 Go to admin page and click on create project and fill up accordingly ....
