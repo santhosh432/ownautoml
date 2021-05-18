@@ -1,5 +1,9 @@
+<p>
+ 
 <a> <img src="https://img.shields.io/badge/python-3.6.13-blue.svg"> </a>
+<a> <img src="https://img.shields.io/badge/django-3.2.2-blue"> </a>
 
+</p>
 # ownautoml
 
 Ownautoml is an automated machine learning toolkit for command line and interface level. It supports autoamted deployement with docker with django.
