@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'ai/base.html' %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="alert alert-info">
+        <h2> Heart disease prediction </h2>
+    </div>
+
+    <form method="" class="form from-control">
+        <table class="table">
+                {{ form.as_table }}
+
+        </table>
+        <input type="submit" value="Predict">
+
+    </form>
+
+    <div class="alert alert-success">
+        Output : {{ p }}
+    </div>
 
 
-<form method="">
-    <table>
-            {{ form.as_table }}
 
-    </table>
-    <input type="submit" value="Predict">
+{% endblock %}
 
-</form>
-
-Output : {{ p }}
-
-</body>
-</html>
+</div>
