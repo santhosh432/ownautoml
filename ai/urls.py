@@ -7,6 +7,6 @@ app_name = 'ai'
 
 urlpatterns = [
     # url(r'^cbcshelpapi/', include(router.urls), name='cbcsapi'),
-    url(r'heart_predict/$', views.heart_disease, name="gpa_predict"),
+    url(r'heart_predict/(?P<pk>\d+)/', views.heart_disease, name="gpa_predict"),
 
     ]
