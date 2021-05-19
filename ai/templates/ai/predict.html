@@ -1,0 +1,35 @@
+{% extends 'ai/base.html' %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="alert alert-info">
+        <h2> {{ project.project_name }} ({{ project.get_project_type_display }})</h2>
+    </div>
+
+    <form method="" class="form from-control from-control-sm">
+        <table class="table">
+                {{ form.as_table }}
+
+        </table>
+        <input type="submit" value="Predict" class="btn btn-success">
+
+    </form>
+
+    <div class="alert alert-info">
+        Output : {{ p }}
+    </div>
+
+    <div class="card border-secondary mb-3">
+        <div class="card card-header">
+            Sample data with 5 records
+        </div>
+        <div class="card card-body">
+            {{ df|safe }}
+        </div>
+    </div>
+
+{% endblock %}
+
+</div>
