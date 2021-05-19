@@ -23,7 +23,7 @@ thal: 3 = normal; 6 = fixed defect; 7 = reversable defect
 
 class HeartDiseaseForm(forms.Form):
     age = forms.FloatField()
-    sex = forms.BooleanField()
+    sex = forms.BooleanField(widget= forms.CheckboxInput(), required=False)
     cp = forms.FloatField()
     rp = forms.FloatField()
     sc = forms.FloatField()
