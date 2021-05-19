@@ -19,6 +19,7 @@ class Project(models.Model):
                     )
     project_name = models.CharField(max_length=150, verbose_name='Project name')
     project_type = models.CharField(max_length=1, choices=PROJECT_TYPE)
+    label = models.CharField(max_length=20, default='label', verbose_name='label column name')
     data = models.FileField(null=True, blank=True, upload_to=user_directory_path)
 
     def __str__(self):
