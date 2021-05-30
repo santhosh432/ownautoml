@@ -5,14 +5,14 @@ from sklearn import manifold
 from sklearn import model_selection
 # import data_cleaning
 import os
-import config
+from . import config
 
 
-def create_fold():
+def create_fold(data_path=None, train_path=None):
     # path = os.getcwd()
     # project = path.split('/')[-1]
 
-    df = pd.read_csv(config.input_data())
+    df = pd.read_csv(data_path)
 
     # df = data_cleaning.cleaning(df, 2)
 
@@ -27,13 +27,13 @@ def create_fold():
     for fold, (trn_, val_) in enumerate(kf.split(X=df)):
         df.loc[val_, 'kfold'] = fold
 
-    df.to_csv(config.training_file())
+    df.to_csv(train_path)
     print('Done...')
 
     return True
 
 
-if __name__ == '__main__':
-
-    create_fold()
+# if __name__ == '__main__':
+#
+#     create_fold()
 
