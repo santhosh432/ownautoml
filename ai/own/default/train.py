@@ -1,31 +1,32 @@
 import  joblib
 import pandas as pd
 import numpy as np
-import config
+from . import config
 from sklearn import tree
 from sklearn import metrics
-import model_dispatcher
+from . import model_dispatcher
 import argparse
 
 
-def run(fold, model):
+def run(fold, model, project_name=None, file_path=None):
     """ fold: K fold number """
 
-    df = pd.read_csv(config.training_file())
+    # df = pd.read_csv(config.training_file())
+    df = pd.read_csv(file_path)
 
     df_train = df[df.kfold != fold].reset_index(drop=True)
 
     df_valid = df[df.kfold == fold].reset_index(drop=True)
 
-    # todo remove columns fro unnamed ...
+    # todo remove columns for unnamed ...
     # df_train = df_train.loc[:, ~df_train.columns.str.match("Unnamed")]
 
     # df_valid = df_train.loc[:, ~df_valid.columns.str.match("Unnamed")]
 
-    x_train = df_train.drop(['label', 'kfold'], axis=1).values
+    x_train = df_train.drop(['label', 'kfold', 'Unnamed: 0'], axis=1).values
     y_train = df_train.label.values
 
-    x_valid = df_valid.drop(['label', 'kfold'], axis=1).values
+    x_valid = df_valid.drop(['label', 'kfold', 'Unnamed: 0'], axis=1).values
     y_valid = df_valid.label.values
 
     clf = model_dispatcher.models[model]
@@ -36,12 +37,14 @@ def run(fold, model):
 
     score = metrics.accuracy_score(y_valid, preds)
 
-    print('Score {0}, fold {1}', score, fold)
+    # print('Score {0}, fold {1}', score, fold)
 
     # joblib.dump(config.models_path() + '/score-{0}-fold-{1}'.format(score, fold))
 
     model_file = '/model-{0},score-{1},fold-{2}.bin'.format(model, round(score * 100, 2), fold)
-    path = config.models_path() + model_file
+    path = config.models_path(project_name) + model_file
+
+    # print('Model save path :', path)
     joblib.dump(clf, path)
 
     f1 = metrics.f1_score(y_valid, preds, average='micro')
