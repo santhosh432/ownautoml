@@ -7,10 +7,8 @@ MODELS = '../models/'
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 
-print('DIR', DIR)
 
-
-def input_data(file_name='train_data.csv', project=None):
+def input_data(file_name='train_data.csv', train_path=None, project=None):
     """
     :param file_name: input CSV file name with all semesters.
     :return: full pah
@@ -18,24 +16,26 @@ def input_data(file_name='train_data.csv', project=None):
     # DIR = DIR
     p = DIR + '/{0}'.format(file_name)
     p = p.replace('src', 'input')
-    print('input data', p)
+    # print('input data', p)
 
     return p
 
 
-def models_path():
+def models_path(project_name=None):
 
     p = DIR
-    p = p.replace('src', 'models')
+    # print('Model path DIR', p)
+    p = p.replace('default', '')
+    p = p.replace('src', 'models') + '/models/{0}'.format(project_name)
 
     return p
 
 
-def training_file():
+def training_file(train_path=None):
 
     p = DIR + '/{0}'.format('train_fold.csv')
     p = p.replace('src', 'input')
-    print('input data', p)
+    # print('input data', p)
     return p
 
 
