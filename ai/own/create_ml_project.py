@@ -5,14 +5,14 @@ import shutil
 def create_project(project):
     print('Started creating project ....', project)
     cwd = os.getcwd()
-    print(cwd)
+    # print(cwd)
     absolute_path = os.path.abspath(__file__)
     p = os.path.dirname(absolute_path)
 
-    print(p)
+    # print(p)
     try:
         os.makedirs(p + '/input/{0}'.format(project))
-        os.makedirs(p + '/src/{0}'.format(project))
+        # os.makedirs(p + '/src/{0}'.format(project))
         os.makedirs(p + '/notebooks/{0}'.format(project))
         os.makedirs(p + '/models/{0}'.format(project))
     except FileExistsError:
@@ -22,12 +22,12 @@ def create_project(project):
 
     # shutil.copy(p + '/src/default/', p + '/src/{0}/'.format(project))
 
-    shutil.copy(p + '/default/train.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/default/config.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/default/create_folds.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/default/inference.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/default/model_dispatcher.py', p + '/src/{0}'.format(project))
-    shutil.copy(p + '/default/models.py', p + '/src/{0}'.format(project))
+    # shutil.copy(p + '/default/train.py', p + '/src/{0}'.format(project))
+    # shutil.copy(p + '/default/config.py', p + '/src/{0}'.format(project))
+    # shutil.copy(p + '/default/create_folds.py', p + '/src/{0}'.format(project))
+    # shutil.copy(p + '/default/inference.py', p + '/src/{0}'.format(project))
+    # shutil.copy(p + '/default/model_dispatcher.py', p + '/src/{0}'.format(project))
+    # shutil.copy(p + '/default/models.py', p + '/src/{0}'.format(project))
 
     #
     #
