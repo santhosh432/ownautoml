@@ -6,43 +6,55 @@ from .own import create_ml_project
 import os
 import sys
 from django.contrib import messages
+from ai.own.default import create_folds, train, model_dispatcher
 
 
 @admin.action(description='Create fold for the projects ....')
 def make_folding(modeladmin, request, queryset):
 
     for q in queryset:
-        path = os.getcwd() + '/ai/own/src/{0}/'.format(q.project_name)
-        os.chdir(path)
-        g = os.getcwd()
-        sys.path.append(path)
+        print(q.project_name)
+        # path = os.getcwd() + '/ai/own/src/{0}/'.format(q.project_name)
+        # os.chdir(path)
+        # g = os.getcwd()
+        # sys.path.append(path)
         # print(os.listdir(g))
 
-        import create_folds
+        print(sys.path)
 
-        create_folds.create_fold()
+        data_path = os.getcwd() + '/ai/own/input/{0}/train_data.csv'.format(q.project_name)
+        train_path = os.getcwd() + '/ai/own/input/{0}/train_fold.csv'.format(q.project_name)
+        create_folds.create_fold(data_path, train_path)
         messages.success(request, 'Fold has been created for project {0} successfully ....'.format(q.project_name))
+        # sys.path.remove(path)
         # print(path)
 
 
 @admin.action(description='Start training for the project ....')
 def start_train(modeladmin, request, queryset):
     for q in queryset:
-        path = os.getcwd() + '/ai/own/src/{0}/'.format(q.project_name)
+        path = os.getcwd() + '/ai/own/src/{0}'.format(q.project_name)
+        # os.chdir(path)
+        print('He cwd after :-----------',os.getcwd())
         # g = os.chdir(path)
         # g = os.getcwd()
-        sys.path.append(path)
+        # sys.path.append(path)
         print(path)
-        import train
-        import model_dispatcher
-
+        # import train
+        # import model_dispatcher
+        import inspect
+        # print('File path -----------------------------------',inspect.getmodule(train.__class__))
         models = model_dispatcher.models
 
         for model in models:
+            train_path = os.getcwd() + '/ai/own/input/{0}/train_fold.csv'.format(q.project_name)
 
             for i in range(5):
-                report = train.run(i, model)
-                print(report)
+                report = train.run(i,
+                                   model,
+                                   project_name=q.project_name,
+                                   file_path=train_path)
+                # print(report)
                 save_report = ClassificationReport(project_name=q,
                                                    model_name=report.get('model_name'),
                                                    model_path = report.get('model_file', None),
@@ -52,10 +64,12 @@ def start_train(modeladmin, request, queryset):
                                                    recall=report.get('recall', 0),
                                                    )
                 save_report.save()
+                # os.chdir(os.getcwd())
 
-                messages.info(request, 'Train with fold number {0} completed by model {1} ....'.format(i, model))
+                # messages.info(request, 'Train with fold number {0} completed by model {1} ....'.format(i, model))
+        # sys.path.remove(path)
 
-    messages.success(request, 'Training complete successfully ')
+    messages.success(request, 'Training successfully completed ... ')
 
 
 @admin.register(Project)
@@ -72,4 +86,5 @@ class ProjectAdmin(admin.ModelAdmin):
 class ClassificationReportAdmin(admin.ModelAdmin):
     list_display = ['project_name', 'model_name','activate','accuracy', 'date_created']
     list_filter = ['model_name', 'project_name']
+    list_editable = ['activate']
 
