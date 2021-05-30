@@ -15,11 +15,13 @@ Ownautoml is an automated machine learning toolkit for command line and interfac
 
 ## Setup project
 
-``` git clone https://github.com/santhosh432/ownautoml.git ``` 
+``` $ git clone https://github.com/santhosh432/ownautoml.git ``` 
 
-``` cd ownautoml ```
+``` $ cd ownautoml ```
 
-``` python manage.py runserver ```
+``` $ pip install -r requirements.txt ```
+
+``` $ python manage.py runserver ```
 
 ``` open http://127.0.0.1:8000/ ```
 
