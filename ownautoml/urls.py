@@ -19,6 +19,6 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'ai/', include('ai.urls', namespace='aiurls')),  # app
+    path('ai/', include('ai.urls')),  # app
 
 ]
