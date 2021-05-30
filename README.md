@@ -23,7 +23,7 @@ Ownautoml is an automated machine learning toolkit for command line and interfac
 
 ``` $ python manage.py runserver ```
 
-``` open http://127.0.0.1:8000/ ```
+``` open http://127.0.0.1:8000/admin ```
 
 #### To create file structure for new Machine learning project
 
