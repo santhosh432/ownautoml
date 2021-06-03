@@ -30,9 +30,9 @@ Ownautoml is an automated machine learning toolkit for command line and interfac
 #### To create file structure for new Machine learning project
 
 ```python
-cd ai/own 
+$ cd ai/own 
 
-python create_ml_project.py --project myproject 
+$ python create_ml_project.py --project myproject 
 
 ```
 
