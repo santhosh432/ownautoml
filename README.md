@@ -7,8 +7,10 @@
 </a>
 </p>
 
+<p style="text-align:center;">
 <img src="doc/files/ownautoml-logo.png" height=100>
-
+ <hr>
+</p>
 ## ownautoml
 
 Ownautoml is an automated machine learning toolkit for command line and user interface level. It supports autoamted deployement with docker and django.
