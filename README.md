@@ -11,7 +11,7 @@
 
 ## ownautoml
 
-Ownautoml is an automated machine learning toolkit for command line and interface level. It supports autoamted deployement with docker and django.
+Ownautoml is an automated machine learning toolkit for command line and user interface level. It supports autoamted deployement with docker and django.
 
 ## Auto ML with your own setup with Django 
 
