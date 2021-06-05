@@ -35,3 +35,12 @@ Ownautoml is an automated machine learning toolkit for command line and user int
 Go to admin page and click on create project and fill up accordingly ....
 
  ![alt text](https://github.com/santhosh432/ownautoml/blob/88886ad3afeeda8413b6b4736432bbc32ac1da84/doc/files/create_project-1.jpg)
+ 
+ 
+ <h3>TODO </h3>
+ 
+<ul> 
+ <li>Auto training for regression </li>
+ <li>Add all regression and classfication models </li>
+ <li>Remove unwanted fileds in uploading training examples (like Unwanted: 0 fields in dataframe) </li>
+</ul>
